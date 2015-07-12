@@ -8,7 +8,7 @@ using Moq;
 namespace MockExample.Tests
 {
     [TestClass]
-    public class ClientRepositoryTests
+    public class ClientServiceTests
     {
         [TestMethod]
         public void Deve_Retornar_Status_Error_Caso_Houver_Exception()
@@ -18,8 +18,8 @@ namespace MockExample.Tests
             mock.Setup(s => s.Get(It.IsAny<int>()))
                 .Throws(new Exception("Testando qualquer erro de Banco de dados"));
 
-            ClientService client = new ClientService(mock.Object);
-            Status status = client.Get(15).Status;
+            var client = new ClientService(mock.Object);
+            var status = client.Get(15).Status;
 
             Assert.AreEqual(Status.Error, status);
         }
@@ -32,8 +32,8 @@ namespace MockExample.Tests
             mock.Setup(s => s.Get(It.IsAny<int>()))
                 .Returns(() => null);
 
-            ClientService client = new ClientService(mock.Object);
-            Status status = client.Get(15).Status;
+            var client = new ClientService(mock.Object);
+            var status = client.Get(15).Status;
 
             Assert.AreEqual(Status.NoContent, status);
         }
@@ -46,8 +46,8 @@ namespace MockExample.Tests
             mock.Setup(s => s.Get(It.IsAny<int>()))
                 .Returns(new Client());
 
-            ClientService client = new ClientService(mock.Object);
-            Status status = client.Get(15).Status;
+            var client = new ClientService(mock.Object);
+            var status = client.Get(15).Status;
 
             Assert.AreEqual(Status.Ok, status);
         }

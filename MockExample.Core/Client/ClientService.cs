@@ -5,6 +5,7 @@ namespace MockExample.Core.Client
     public class ClientService
     {
         private readonly IClientRepository _clientRepository;
+
         public ClientService(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
@@ -21,7 +22,7 @@ namespace MockExample.Core.Client
             }
             catch
             {
-               return Notification.Notification.Response(Status.Error);
+                return Notification.Notification.Response(Status.Error);
             }
         }
     }

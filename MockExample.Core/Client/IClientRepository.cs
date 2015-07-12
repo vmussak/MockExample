@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MockExample.Core.Client
+﻿namespace MockExample.Core.Client
 {
     public interface IClientRepository
     {

@@ -21,6 +21,9 @@
             Content = content;
         }
 
+        public Status Status { get; }
+        public object Content { get; }
+
         public static Notification Response(Status status)
         {
             return new Notification(status);
@@ -30,8 +33,5 @@
         {
             return new Notification(status, content);
         }
-
-        public Status Status { get; }
-        public object Content { get; }
     }
 }
