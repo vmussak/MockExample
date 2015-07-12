@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-
-namespace MockExample.Core.Notification
+﻿namespace MockExample.Core.Notification
 {
     public enum Status
     {
